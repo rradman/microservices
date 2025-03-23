@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  fastapi_service:
+    build: ./fastapi_service
+    ports:
+      - "8000:8000"
+    networks:
+      - microservices_network
+
+  flask_service:
+    build: ./flask_service
+    ports:
+      - "5000:5000"
+    networks:
+      - microservices_network
+
+  golang_service:
+    build: ./golang_service
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices_network
+
+networks:
+  microservices_network:
